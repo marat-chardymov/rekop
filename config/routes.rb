@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root "welcome#start"
+
+  post '/signup', to: "registrations#create"
+
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 

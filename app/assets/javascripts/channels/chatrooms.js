@@ -1,9 +1,12 @@
 // app/assets/javascripts/channels/chatrooms.js
 
-//= require cable
+//= require action_cable
 //= require_self
 //= require_tree .
 
-this.App = {};
+(function() {
+    this.App || (this.App = {});
 
-App.cable = ActionCable.createConsumer();
+    App.cable = ActionCable.createConsumer();
+
+}).call(this);

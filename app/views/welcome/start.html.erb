@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <h2 id="log-in-title">Sign up</h2>
+    <div class="auth-form well">
+      <%= form_for(User.new, url: signup_path) do |f| %>
+
+          <%= f.label :name %>
+          <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "sign up", class: "btn btn-primary" %>
+          </div>
+      <% end %>
+
+      <% if flash.notice %>
+          <div class="alert alert-danger">
+            <% flash.notice.each do |type, messages|%>
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><%messages.each do |msg|%>
+                    <%=type%> <%=msg%>
+                <%end%>
+            <%end%>
+          </div>
+      <%end%>
+    </div>
+  </div>
+</div>
